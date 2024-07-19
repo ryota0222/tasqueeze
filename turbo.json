@@ -4,7 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT", ".env*"],
-      "outputs": [".svelte-kit/**", ".vercel/**"]
+      "outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
     },
     "lint": {},
     "dev": {
@@ -12,6 +12,9 @@
       "persistent": true
     },
     "test:integration": {},
-    "test:unit": {}
+    "test:unit": {},
+    "generate": {
+      "outputs": ["packages/proto/generated/**"]
+    }
   }
 }

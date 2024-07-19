@@ -16,7 +16,8 @@
 		"test:unit": "vitest run"
 	},
 	"dependencies": {
-		"@repo/ui": "workspace:*"
+		"@repo/ui": "workspace:*",
+		"@repo/proto": "workspace:*"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.42.1",
