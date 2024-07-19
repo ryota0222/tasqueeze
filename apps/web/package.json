@@ -1,18 +1,19 @@
 {
-  "name": "web",
+	"name": "web",
 	"version": "0.0.1",
 	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "vite preview --port 4174",
 		"test": "npm run test:integration && npm run test:unit",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit:watch": "vitest run",
+		"test:unit": "vitest run"
 	},
 	"dependencies": {
 		"@repo/ui": "workspace:*"
