@@ -13,6 +13,14 @@ services:
       MYSQL_PASSWORD: password
     volumes:
       - db_data:/var/lib/mysql
+  envoy:
+    image: envoyproxy/envoy:v1.27-latest
+    hostname: envoy
+    container_name: tasq-proxy
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
 
 volumes:
   db_data:
