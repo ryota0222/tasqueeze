@@ -2,18 +2,20 @@
   "name": "@repo/proto",
   "version": "0.0.0",
   "scripts": {
-    "pregenerate": "if [ -d ./generate ]; then rm -rf ./generate; fi && mkdir -p ./generate",
-    "generate": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generate --grpc_out=grpc_js:./generate --ts_out=grpc_js:./generate service.proto"
+    "pregenerate": "if [ -d ./generate ]; then rm -rf ./generate; fi && mkdir -p ./generate/server && mkdir -p ./generate/web",
+    "generate:server": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generate --grpc_out=grpc_js:./generate --ts_out=grpc_js:./generate service.proto",
+    "generate:web": "protoc --plugin='protoc-gen-ts=node_modules/.bin/protoc-gen-ts' --js_out=import_style=commonjs:./generate/web --grpc-web_out=import_style=typescript,mode=grpcwebtext:./generate/web service.proto",
+    "generate": "pnpm run pregenerate && pnpm run generate:server && npm run generate:web"
   },
   "devDependencies": {
     "grpc-tools": "^1.12.4",
-    "grpc-web": "^1.5.0",
-    "grpc_tools_node_protoc_ts": "^5.3.3",
-    "ts-protoc-gen": "^0.15.0"
+    "grpc-web": "^1.5.0"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.1",
     "@types/google-protobuf": "^3.15.12",
-    "google-protobuf": "^3.21.4"
+    "google-protobuf": "^3.21.4",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "ts-protoc-gen": "^0.15.0"
   }
 }
