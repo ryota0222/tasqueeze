@@ -16,18 +16,21 @@
 		"test:unit": "vitest run"
 	},
 	"dependencies": {
+		"@grpc/grpc-js": "^1.11.1",
+		"@repo/proto": "workspace:*",
 		"@repo/ui": "workspace:*",
-		"@repo/proto": "workspace:*"
+		"rollup-plugin-polyfill-node": "^0.13.0",
+		"vite-plugin-commonjs": "^0.10.1"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.42.1",
+		"@repo/eslint-config": "workspace:*",
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/kit": "^2.5.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@typescript-eslint/eslint-plugin": "^7.1.0",
 		"@typescript-eslint/parser": "^7.1.0",
 		"eslint": "^8.57.0",
-		"@repo/eslint-config": "workspace:*",
 		"prettier": "^3.2.5",
 		"prettier-plugin-svelte": "^3.2.2",
 		"svelte": "^4.2.12",
